@@ -1,0 +1,64 @@
+body {
+  font-family: serif !important;
+}
+.nav-link:hover {
+  color: #fcb300 !important;
+}
+
+/* header{
+    position: fixed;
+    z-index: 1000;
+} */
+
+#logo {
+  font-size: 3.5rem !important;
+}
+#logo-banner {
+  z-index: 1;
+}
+
+/* Banner principal */
+main {
+  min-height: 100vh;
+}
+.hero-banner {
+  background-image: url(/src/img/banner.webp);
+  background-size: cover;
+  background-position: center bottom;
+  background-attachment: fixed;
+  position: relative;
+  height: 50vh;
+}
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.hero-banner h1 {
+    font-size: 3.5rem;
+  font-weight: bold;
+  color: #fff;
+  z-index: 1;
+}
+.btn{
+    background-color: #fcb300 !important;
+    border-radius: 0 !important;
+}
+.btn:hover{
+    color: white!important;
+}
+.card{
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+.card img{
+    max-width: 100% !important;
+    border-radius: 0 !important;
+}
+.map{
+    height: 50vh;
+}
