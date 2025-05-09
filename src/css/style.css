@@ -10,7 +10,7 @@ body {
     z-index: 1000;
 } */
 
-#logo {
+.logo-grande { /* Revisar: pasarlo a una clase*/
   font-size: 3.5rem !important;
 }
 #logo-banner {
@@ -44,21 +44,53 @@ main {
   color: #fff;
   z-index: 1;
 }
+
+
+/* Cards */
+
+.card {
+  border-radius: 0 !important;
+  padding: 0 !important;
+  height: 100%; /* Para que ocupen toda la altura del contenedor padre si se usa h-100 */
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 200px; /* Tamaño fijo para todas las imágenes */
+  object-fit: cover;
+  border-radius: 0 !important;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.card-text-block {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 .btn{
     background-color: #fcb300 !important;
     border-radius: 0 !important;
 }
-.btn:hover{
-    color: white!important;
+
+.btn:hover {
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
 }
-.card{
-    border-radius: 0 !important;
-    padding: 0 !important;
-}
-.card img{
-    max-width: 100% !important;
-    border-radius: 0 !important;
-}
+
 .map{
     height: 50vh;
 }
