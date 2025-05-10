@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: serif !important;
 }
@@ -10,7 +14,8 @@ body {
     z-index: 1000;
 } */
 
-.logo-grande { /* Revisar: pasarlo a una clase*/
+.logo-grande {
+  /* Revisar: pasarlo a una clase*/
   font-size: 3.5rem !important;
 }
 #logo-banner {
@@ -21,14 +26,21 @@ body {
 main {
   min-height: 100vh;
 }
+
 .hero-banner {
-  background-image: url(/src/img/banner.webp);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background-size: cover;
   background-position: center bottom;
   background-attachment: fixed;
   position: relative;
-  height: 50vh;
+  min-height: 50vh;
+  background-image: url(/src/img/banner.webp);
+  min-height: 50vh;
 }
+
 .hero-banner::before {
   content: "";
   position: absolute;
@@ -39,12 +51,11 @@ main {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .hero-banner h1 {
-    font-size: 3.5rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: #fff;
   z-index: 1;
 }
-
 
 /* Cards */
 
@@ -60,7 +71,6 @@ main {
   width: 100%;
   height: 200px; /* Tamaño fijo para todas las imágenes */
   object-fit: cover;
-  border-radius: 0 !important;
 }
 
 .card-body {
@@ -80,17 +90,17 @@ main {
   margin-bottom: 1rem;
 }
 
-.btn{
-    background-color: #fcb300 !important;
-    border-radius: 0 !important;
+.btn {
+  background-color: #fcb300 !important;
+  border-radius: 0.7rem !important;
 }
 
 .btn:hover {
   color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.map{
-    height: 50vh;
+.map {
+  height: 50vh;
 }
