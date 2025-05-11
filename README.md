@@ -1,8 +1,8 @@
 # FCAD - Introducción al Desarrollo Web
 ### Segunda Entrega  
 
-#### Integrantes  
+#### Integrantes
+- **Sebastian Puchetti**
 - **Tomás Francisco Giménez Lascano**  
-- **Sebastian Puchetti**  
 - **Juan Ignacio Zacca**
 - **Daniel Hernandez Torres**
