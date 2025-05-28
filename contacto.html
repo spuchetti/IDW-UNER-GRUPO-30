@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,16 +39,18 @@
       </nav>
     </div>
   </header>
-  
+
   <main class="container my-5">
     <div class="row g-4">
       <div class="col-12 col-lg-6">
-        <form action="https://formsubmit.co/tomasgimenezlascano123@gmail.com" method="POST" class="needs-validation" novalidate>
+        <form action="https://formsubmit.co/tomasgimenezlascano123@gmail.com" method="POST" class="needs-validation"
+          novalidate>
           <h3 class="mb-4">Formulario de contacto</h3>
 
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" required />
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre"
+              required />
             <div class="invalid-feedback">Ingrese su nombre.</div>
           </div>
 
@@ -59,7 +62,8 @@
 
           <div class="mb-3">
             <label for="mensaje" class="form-label">Mensaje</label>
-            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required placeholder="Ej: Quisiera contactarlos para organizar la fiesta de 15 de mi hija"></textarea>
+            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required
+              placeholder="Ej: Quisiera contactarlos para organizar la fiesta de 15 de mi hija"></textarea>
             <div class="invalid-feedback">Escriba su mensaje.</div>
           </div>
 
@@ -76,35 +80,45 @@
     </div>
   </main>
 
-  <footer class="bg-dark text-white py-4">
+  <footer class="container-fluid bg-dark text-white py-4">
     <div class="container text-center text-md-start">
-      <h3 class="border-bottom border-warning d-inline-block pb-1">Contacto</h3>
-      <div class="mt-3">
-        <p>Dirección: San Martín 123, Salta</p>
-        <p>Email: contacto@idwsa.com</p>
-        <p>Teléfono: (+54) 387-4035140</p>
+      <div>
+        <h3 class="d-inline border-bottom border-warning">Contacto</h3>
+        <div class="d-flex flex-column gap-2 mt-3">
+          <a href="https://www.google.com/maps?q=San+Mart%C3%ADn+123,+Salta" target="_blank" rel="noopener noreferrer"
+            class="text-decoration-none text-white">
+            Dirección: San Martín 123, Salta
+          </a>
+          <a href="mailto:contacto@idwsa.com" class="text-decoration-none text-white">
+            Email: contacto@idwsa.com
+          </a>
+          <a href="tel:387-4035140" class="text-decoration-none text-white">
+            Teléfono: (+54) 387-4035140
+          </a>
+        </div>
       </div>
       <div class="text-center mt-4">
         <p class="m-0 p-0">IDW S.A TODOS LOS DERECHOS RESERVADOS</p>
       </div>
     </div>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    (() => {
-      'use strict';
-      const forms = document.querySelectorAll('.needs-validation');
-      Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    })();
-  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (() => {
+        'use strict';
+        const forms = document.querySelectorAll('.needs-validation');
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      })();
+    </script>
 </body>
+
 </html>
