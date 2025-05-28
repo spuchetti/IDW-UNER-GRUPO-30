@@ -1,26 +1,23 @@
 body {
   font-family: serif !important;
 }
+
 .nav-link:hover {
   color: #fcb300 !important;
 }
 
-/* header{
-    position: fixed;
-    z-index: 1000;
-} */
-
-.logo-grande { /* Revisar: pasarlo a una clase*/
-  font-size: 3.5rem !important;
+.logo-grande {
+  font-size: 3.5rem;
 }
+
 #logo-banner {
   z-index: 1;
 }
 
-/* Banner principal */
 main {
   min-height: 100vh;
 }
+
 .hero-banner {
   background-image: url(/src/img/banner.webp);
   background-size: cover;
@@ -29,6 +26,7 @@ main {
   position: relative;
   height: 50vh;
 }
+
 .hero-banner::before {
   content: "";
   position: absolute;
@@ -38,29 +36,27 @@ main {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 .hero-banner h1 {
-    font-size: 3.5rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: #fff;
   z-index: 1;
 }
 
-
-/* Cards */
-
 .card {
-  border-radius: 0 !important;
-  padding: 0 !important;
-  height: 100%; /* Para que ocupen toda la altura del contenedor padre si se usa h-100 */
+  border-radius: 0;
+  padding: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .card img {
   width: 100%;
-  height: 200px; /* Tamaño fijo para todas las imágenes */
+  height: 200px;
   object-fit: cover;
-  border-radius: 0 !important;
+  border-radius: 0;
 }
 
 .card-body {
@@ -80,17 +76,109 @@ main {
   margin-bottom: 1rem;
 }
 
-.btn{
-    background-color: #fcb300 !important;
-    border-radius: 0 !important;
+.btn-reservar {
+  background-color: #fcb300 !important;
+  border-radius: 0 !important;
 }
 
-.btn:hover {
+.btn-reservar:hover {
   color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+
 }
 
-.map{
-    height: 50vh;
+.map {
+  height: 50vh;
+}
+
+
+@media (max-width: 575.98px) {
+  header .container {
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .logo-grande {
+    font-size: 2.5rem;
+  }
+
+  .hero-banner {
+    height: 35vh;
+    background-attachment: scroll;
+  }
+
+  .hero-banner h1 {
+    font-size: 1.8rem;
+    padding: 0 1rem;
+  }
+
+  #logo-banner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .card .card-body {
+    padding: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+  }
+
+  .map {
+    height: 30vh;
+  }
+
+  footer .container {
+    text-align: center !important;
+  }
+
+  footer .container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer a {
+    font-size: 0.9rem;
+  }
+
+  nav ul.nav {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  nav ul.nav .nav-link {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-banner h1 {
+    font-size: 3rem;
+  }
+
+  .logo-grande {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-banner {
+    height: 60vh;
+  }
+
+  .card img {
+    height: 250px;
+  }
 }
