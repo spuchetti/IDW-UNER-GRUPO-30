@@ -87,17 +87,6 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
-.btn-reservar {
-  background-color: #fcb300;
-  border-radius: 0;
-}
-
-.btn-reservar:hover {
-  color: white !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-}
-
 .map {
   height: 50vh;
 }
@@ -217,4 +206,17 @@ main {
   .card img {
     height: 250px;
   }
+}
+
+.btn-reservar {
+  background-color: #fcb300 !important;
+  color: #000 !important;
+  border-radius: 0;
+}
+
+.btn-reservar:hover {
+  color: #fff !important;
+  background-color: #dba100 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
