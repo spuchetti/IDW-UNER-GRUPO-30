@@ -37,7 +37,7 @@ main {
   background-attachment: fixed;
   position: relative;
   min-height: 50vh;
-  background-image: url(/src/img/banner.webp);
+  background-image: url("../img/banner.webp");
   min-height: 50vh;
 }
 
