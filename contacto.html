@@ -5,118 +5,130 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacto</title>
-
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
-  <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="/src/css/style.css" />
+  <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
 <body>
   <header class="container-fluid bg-dark">
-    <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center py-3">
+    <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center py-3 gap-3">
       <div class="d-flex flex-column flex-lg-row align-items-center text-center text-lg-start gap-3">
         <div>
-          <a class="logo-grande text-warning text-decoration-none text-uppercase" href="/index.html">IDW</a>
+          <a class="logo-grande text-warning text-decoration-none text-uppercase" href="index.html">IDW</a>
         </div>
         <div class="text-white fs-6">
           <p class="m-0 text-uppercase">EVENTOS & FIESTAS</p>
           <p class="m-0 text-capitalize">Donde tu sueño se vuelve realidad</p>
         </div>
       </div>
-
       <nav class="pt-3 pt-lg-0">
         <ul class="nav flex-column flex-md-row align-items-center gap-3 m-0">
           <li class="nav-item">
-            <a href="/index.html" class="nav-link text-white">Inicio</a>
+            <a href="index.html" class="nav-link text-white">Inicio</a>
           </li>
           <li class="nav-item">
-            <a href="/institucional.html" class="nav-link text-white">Institucional</a>
+            <a href="institucional.html" class="nav-link text-white">Institucional</a>
           </li>
           <li class="nav-item">
-            <a href="/contacto.html" class="nav-link text-white">Contacto</a>
+            <a href="contacto.html" class="nav-link text-white">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a href="login.html" class="btn btn-outline-warning text-white fw-bold">
+              Iniciar sesión
+            </a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
-  
-  <!-- Sección de contacto -->
-  <section class="container my-5">
-    <div class="row g-4">
-      <!-- Formulario -->
-      <div class="col-12 col-lg-6">
-        <form action="https://formsubmit.co/tomasgimenezlascano123@gmail.com" method="POST" class="needs-validation"
-          novalidate>
-          <h3 class="mb-4">Formulario de contacto</h3>
-
-          <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre"
-              required />
-            <div class="invalid-feedback">Ingrese su nombre.</div>
-          </div>
-
-          <div class="mb-3">
-            <label for="email" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo" required />
-            <div class="invalid-feedback">Ingrese un correo válido.</div>
-          </div>
-
-          <div class="mb-3">
-            <label for="mensaje" class="form-label">Mensaje</label>
-            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required
-              placeholder="Ej: Quisiera contactarlos para organizar la fiesta de 15 de mi hija"></textarea>
-            <div class="invalid-feedback">Escriba su mensaje.</div>
-          </div>
-
-          <button type="submit" class="btn btn-warning">Enviar</button>
-        </form>
+  <main>
+    <section class="container my-5">
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <h2 class="mb-4">Formulario de Contacto</h2>
+          <form action="https://formsubmit.co/contacto@idwsa.com" method="POST">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="mensaje" class="form-label">Mensaje</label>
+              <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning">Enviar</button>
+          </form>
+        </div>
+        <div class="col-12 col-lg-6">
+          <h2 class="mb-4">Datos de Contacto</h2>
+          <ul class="list-unstyled">
+            <li>
+              <strong>Dirección:</strong>
+              <a href="https://www.google.com/maps?q=San+Martín+123,+Salta" target="_blank" rel="noopener noreferrer"
+                class="text-decoration-none text-dark">San Martín 123, Salta</a>
+            </li>
+            <li>
+              <strong>Email:</strong>
+              <a href="mailto:contacto@idwsa.com" class="text-decoration-none text-dark">contacto@idwsa.com</a>
+            </li>
+            <li>
+              <strong>Teléfono:</strong>
+              <a href="tel:387-4035140" class="text-decoration-none text-dark">(+54) 387-4035140</a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <!-- Mapa -->
-      <div class="col-12 col-lg-6">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.042820786547!2d-65.40748862384712!3d-24.79398720803269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3a21b573ca3%3A0xa02f5b22c3baef52!2sAv.%20San%20Mart%C3%ADn%20123%2C%20A4400%20Salta%2C%20Argentina!5e0!3m2!1ses!2sit!4v1744582059255!5m2!1ses!2sit"
-          width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" class="rounded shadow"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-dark text-white py-4">
+  <footer class="container-fluid bg-dark text-white py-4">
     <div class="container text-center text-lg-start">
-      <h3 class="border-bottom border-warning d-inline-block pb-1">Contacto</h3>
-      <div class="mt-3">
-        <p>Dirección: San Martín 123, Salta</p>
-        <p>Email: contacto@idwsa.com</p>
-        <p>Teléfono: (+54) 387-4035140</p>
-        <p>IDW S.A TODOS LOS DERECHOS RESERVADOS</p>
+      <div>
+        <h3 class="d-inline border-bottom border-warning">Contacto</h3>
+        <div class="container d-flex flex-column gap-2 mt-3">
+          <a href="https://www.google.com/maps?q=San+Martín+123,+Salta" target="_blank" rel="noopener noreferrer"
+            class="text-decoration-none text-white">
+            Dirección: San Martín 123, Salta
+          </a>
+          <a href="mailto:contacto@idwsa.com" class="text-decoration-none text-white">Email: contacto@idwsa.com</a>
+          <a href="tel:387-4035140" class="text-decoration-none text-white">Teléfono: (+54) 387-4035140</a>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <p class="m-0 p-0">IDW S.A TODOS LOS DERECHOS RESERVADOS</p>
       </div>
     </div>
   </footer>
 
-  <!-- Bootstrap JS y validación -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Validación Bootstrap
-    (() => {
-      'use strict';
-      const forms = document.querySelectorAll('.needs-validation');
-      Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    })();
-  </script>
-</body>
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-warning">Ingresar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
 </html>
