@@ -1,4 +1,4 @@
-import { logout } from '/js/auth.js';
+import { logout } from './auth.js';
 
 const btn = document.getElementById('logoutBtn');
 if (btn) {
