@@ -156,7 +156,7 @@
                 </tr>
               </thead>
               <tbody id="tablaMensajesContacto">
-                <!-- Mensajes cargados por JS -->
+                <!-- Los mensajes de contacto se renderizan acá -->
               </tbody>
             </table>
           </div>
@@ -200,11 +200,11 @@
     <script type="module" src="src/js/crud_salones.js"></script>
     <script type="module" src="src/js/logout.js"></script>
     <script type="module">
-      import { protegerRuta } from "./src/js/proteger_ruta.js";
+      import { protegerRuta } from "src/js/proteger_ruta.js";
       protegerRuta();
     </script>
     <script type="module">
-      import { renderizarMensajesContacto } from "./src/js/mensajes_contacto.js";
+      import { renderizarMensajesContacto } from "src/js/mensajes_contacto.js";
       renderizarMensajesContacto();
     </script>
   </body>

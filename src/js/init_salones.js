@@ -1,5 +1,5 @@
 export const inicializar_salones = () => {
-  if (!localStorage.getItem('salones')) {
+  if (!localStorage.getItem('salones')) { // Verifica si ya existen salones en localStorage
     const salones_iniciales = [
       {
         id: 1,
@@ -30,6 +30,6 @@ export const inicializar_salones = () => {
         precio: 10000
       }
     ];
-    localStorage.setItem('salones', JSON.stringify(salones_iniciales));
+    localStorage.setItem('salones', JSON.stringify(salones_iniciales)); // Guarda los salones iniciales en localStorage
   }
 };

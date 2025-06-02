@@ -1,4 +1,4 @@
-import { inicializar_salones } from './init_salones.js';
+import { inicializar_salones } from 'init_salones.js';
 
 inicializar_salones();
 
@@ -42,6 +42,7 @@ function renderizarTabla() {
     tablaSalones.appendChild(tr);
   });
 }
+
 
 tablaSalones.addEventListener('click', (e) => {
   if (e.target.classList.contains('btn-editar')) {
