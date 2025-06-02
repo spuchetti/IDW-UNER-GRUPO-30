@@ -1,4 +1,4 @@
-import { login } from 'auth.js';
+import { login } from './auth.js';
 
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
