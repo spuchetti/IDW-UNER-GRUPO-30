@@ -1,4 +1,4 @@
-import { inicializar_salones } from 'init_salones.js';
+import { inicializar_salones } from 'ini_salones.js';
 
 inicializar_salones();
 

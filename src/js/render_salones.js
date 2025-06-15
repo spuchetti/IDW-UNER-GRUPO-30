@@ -20,7 +20,7 @@ function crearCardSalon(salon) {
           <p class="fw-semibold">
             <span class="text-warning">Precio: </span>$${salon.precio} por día
           </p>
-          <a href="#" class="btn btn-warning text-dark fw-bold w-100">Reservar ahora</a>
+          <a href="#" class="btn btn-warning btn-reservar-salon" data-id="${salon.id}">Reservar ahora</a>
         </div>
       </div>
     </div>

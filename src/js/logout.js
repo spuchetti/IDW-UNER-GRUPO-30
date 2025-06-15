@@ -1,9 +1,8 @@
-import { logout } from 'auth.js';
+import { logout } from './auth.js';
 
-const btn = document.getElementById('logoutBtn');
-if (btn) {
-  btn.addEventListener('click', () => {
-    logout();
-    window.location.href = "login.html";
-  });
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('btnLogout');
+  if (btn) {
+    btn.addEventListener('click', logout);
+  }
+});

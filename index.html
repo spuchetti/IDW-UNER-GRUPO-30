@@ -118,11 +118,63 @@
     </div>
   </div>
 
+  <div class="modal fade" id="modalDetallesSalon" tabindex="-1" aria-labelledby="modalDetallesSalonLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalDetallesSalonLabel">Detalles del Salón</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Aquí van los detalles del salón seleccionado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="modal fade" id="modalReserva" tabindex="-1" aria-labelledby="modalReservaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="formReserva" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalReservaLabel">Reservar Salón</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="reservaSalonId" />
+          <div class="mb-3">
+            <label for="nombreCliente" class="form-label">Apellido y Nombre</label>
+            <input type="text" class="form-control" id="nombreCliente" required />
+          </div>
+          <div class="mb-3">
+            <label for="fechaEvento" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="fechaEvento" required />
+          </div>
+          <div class="mb-3">
+            <label for="tematica" class="form-label">Temática</label>
+            <input type="text" class="form-control" id="tematica" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Servicios</label>
+            <div id="serviciosReserva"></div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Total: $<span id="totalReserva">0</span></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-warning">Confirmar Reserva</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
     crossorigin="anonymous"></script>
-  <script type="module" src="src/js/init_salones.js"></script>
+  <script type="module" src="src/js/ini_salones.js"></script>
   <script type="module" src="src/js/render_salones.js"></script>
+  <script type="module" src="src/js/reserva.js"></script>
 </body>
 
 </html>
