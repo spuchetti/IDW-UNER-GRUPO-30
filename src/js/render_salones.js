@@ -1,3 +1,7 @@
+import { inicializar_salones } from './ini_salones.js';
+
+inicializar_salones();
+
 function obtenerSalones() {
   return JSON.parse(localStorage.getItem('salones')) || [];
 }
@@ -27,11 +31,11 @@ function crearCardSalon(salon) {
   `;
 }
 export function renderizarSalones() {
+  const salones = obtenerSalones();
   const container = document.getElementById('salones-cards-container');
   if (!container) return;
-  const salones = obtenerSalones();
+
   container.innerHTML = salones.map(crearCardSalon).join('');
 }
 
-// Renderiza al cargar el archivo
 renderizarSalones();
