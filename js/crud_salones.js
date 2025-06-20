@@ -1,4 +1,8 @@
+<<<<<<< HEAD:js/crud_salones.js
 import { inicializar_salones } from './init_salones.js';
+=======
+import { inicializar_salones } from './ini_salones.js';
+>>>>>>> Seba:src/js/crud_salones.js
 
 inicializar_salones();
 
@@ -42,6 +46,7 @@ function renderizarTabla() {
     tablaSalones.appendChild(tr);
   });
 }
+
 
 tablaSalones.addEventListener('click', (e) => {
   if (e.target.classList.contains('btn-editar')) {

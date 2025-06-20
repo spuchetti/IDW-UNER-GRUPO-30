@@ -14,3 +14,5 @@ export function renderizarMensajesContacto() {
     `).join('')
     : `<tr><td colspan="4" class="text-center text-muted">No hay mensajes</td></tr>`;
 }
+
+renderizarMensajesContacto();
