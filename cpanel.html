@@ -62,8 +62,10 @@
         <h2 class="mb-4 text-center">Gestión de Salones</h2>
 
         <form id="salonForm" class="row g-3 mb-4 needs-validation" novalidate>
+          <h3 class="text-left fw-bold">Agregar Salón</h3>
           <input type="hidden" id="salonId" />
           <div class="col-12">
+            <label for="nombre" class="form-label">Nombre del Salón</label>
             <input
               type="text"
               class="form-control"
@@ -74,6 +76,7 @@
             <div class="invalid-feedback">Ingrese el nombre.</div>
           </div>
           <div class="col-12">
+            <label for="descripcion" class="form-label">Descripción</label>
             <input
               type="text"
               class="form-control"
@@ -84,6 +87,7 @@
             <div class="invalid-feedback">Ingrese la descripción.</div>
           </div>
           <div class="col-12">
+            <label for="capacidad" class="form-label">Capacidad</label>
             <input
               type="number"
               class="form-control"
@@ -95,6 +99,7 @@
             <div class="invalid-feedback">Ingrese la capacidad.</div>
           </div>
           <div class="col-12">
+            <label for="precio" class="form-label">Precio</label>
             <input
               type="number"
               class="form-control"
@@ -106,6 +111,9 @@
             <div class="invalid-feedback">Ingrese el precio.</div>
           </div>
           <div class="col-12">
+            <label for="imagen" class="form-label"
+              >Imagen del salón (opcional)</label
+            >
             <input
               type="file"
               class="form-control"
@@ -165,7 +173,11 @@
         </section>
         <section class="my-5">
           <h2 class="mb-4 text-center">Gestión de Servicios</h2>
-          <form id="formServicio" class="row g-3 mb-3 needs-validation" novalidate>
+          <form
+            id="formServicio"
+            class="row g-3 mb-3 needs-validation"
+            novalidate
+          >
             <input type="hidden" id="servicioId" />
             <div class="col-6">
               <input
