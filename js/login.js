@@ -1,3 +1,4 @@
+<<<<<<< HEAD:js/login.js
 import { login } from './auth.js';
 
 const emailInput = document.getElementById('email');
@@ -12,18 +13,30 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 document.querySelector('form').addEventListener('submit', function(e) {
+=======
+document.querySelector('form').addEventListener('submit', async function(e) {
+>>>>>>> Seba:src/js/login.js
   e.preventDefault();
-  const email = emailInput.value.trim();
-  const password = passwordInput.value.trim();
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
 
-  if (recordarCheckbox.checked) {
-    localStorage.setItem('loginRecordado', JSON.stringify({ email, password }));
-  } else {
-    localStorage.removeItem('loginRecordado');
-  }
-
-  if (login(email, password)) {
-    window.location.href = "cpanel.html";
+  const res = await fetch('https://dummyjson.com/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password })
+  });
+  if (res.ok) {
+    const data = await res.json();
+    sessionStorage.setItem('accessToken', data.token);
+    // Solo michaelw es admin
+    if (username === "michaelw") {
+      sessionStorage.setItem('rol', 'admin');
+      window.location.href = "cpanel.html";
+    } else {
+      sessionStorage.setItem('rol', 'comun');
+      alert("No tienes permisos para acceder al panel de administración.");
+      window.location.href = "index.html";
+    }
   } else {
     alert("Usuario o contraseña incorrectos");
   }

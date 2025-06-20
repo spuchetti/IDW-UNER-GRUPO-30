@@ -49,7 +49,7 @@
               <a href="contacto.html" class="nav-link text-white">Contacto</a>
             </li>
             <li>
-              <button id="logoutBtn" class="btn btn-danger ms-2">
+              <button id="btnLogout" class="btn btn-danger ms-2">
                 Cerrar sesión
               </button>
             </li>
@@ -125,6 +125,7 @@
           </div>
         </form>
         <hr />
+
         <div class="table-responsive">
           <table
             class="table table-bordered align-middle text-center"
@@ -145,6 +146,7 @@
         <hr />
         <section class="my-5">
           <h2 class="mb-4 text-center">Últimos formularios recibidos</h2>
+          <!-- Tabla de mensajes de contacto -->
           <div class="table-responsive">
             <table class="table table-bordered align-middle text-center">
               <thead class="table-dark">
@@ -156,10 +158,63 @@
                 </tr>
               </thead>
               <tbody id="tablaMensajesContacto">
-                <!-- Los mensajes de contacto se renderizan acá -->
+                <!-- Los mensajes de contacto se cargan acá -->
               </tbody>
             </table>
           </div>
+        </section>
+        <section class="my-5">
+          <h2 class="mb-4 text-center">Gestión de Servicios</h2>
+          <form id="formServicio" class="row g-3 mb-3 needs-validation" novalidate>
+            <input type="hidden" id="servicioId" />
+            <div class="col-6">
+              <input
+                type="text"
+                id="descripcionServicio"
+                class="form-control"
+                placeholder="Descripción"
+                required
+              />
+            </div>
+            <div class="col-4">
+              <input
+                type="number"
+                id="valorServicio"
+                class="form-control"
+                placeholder="Valor"
+                required
+              />
+            </div>
+            <div class="col-2 d-grid">
+              <button type="submit" class="btn btn-warning">Guardar</button>
+            </div>
+          </form>
+          <table class="table table-bordered" id="tablaServicios">
+            <thead>
+              <tr>
+                <th>Descripción</th>
+                <th>Valor</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </section>
+        <section class="my-5" id="seccion-usuarios">
+          <h2 class="mb-4 text-center">Usuarios registrados</h2>
+          <table class="table table-bordered" id="tablaUsuarios">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Ciudad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Acá se insertan los usuarios -->
+            </tbody>
+          </table>
         </section>
       </div>
     </main>
@@ -197,6 +252,7 @@
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"
     ></script>
+<<<<<<< HEAD
     <script type="module" src="js/crud_salones.js"></script>
     <script type="module" src="js/logout.js"></script>
     <script type="module">
@@ -207,5 +263,15 @@
       import { renderizarMensajesContacto } from "./js/mensajes_contacto.js";
       renderizarMensajesContacto();
     </script>
+=======
+    <script type="module" src="src/js/ini_salones.js"></script>
+    <script type="module" src="src/js/render_salones.js"></script>
+    <script type="module" src="src/js/crud_salones.js"></script>
+    <script type="module" src="src/js/logout.js"></script>
+    <script type="module" src="src/js/proteger_ruta.js"></script>
+    <script type="module" src="src/js/mensajes_contacto.js"></script>
+    <script type="module" src="src/js/servicios.js"></script>
+    <script type="module" src="src/js/usuarios.js"></script>
+>>>>>>> Seba
   </body>
 </html>
