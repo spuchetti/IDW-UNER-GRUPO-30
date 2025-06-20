@@ -62,12 +62,25 @@
       </div>
     </section>
 
+    <!-- Sección de salones -->
     <section class="container-fluid my-5">
       <div class="container d-flex flex-column gap-4">
         <h2 class="text-center fw-bold">Nuestros Salones</h2>
+        <!-- Filtros debajo del título -->
+        <div class="container my-4">
+          <form id="formFiltros" class="row g-3">
+            <div class="col-md-4">
+              <label for="filtroFecha" class="form-label">Fecha de reserva</label>
+              <input type="date" id="filtroFecha" class="form-control">
+            </div>
+            <!-- Más filtros aquí -->
+            <div class="col-12">
+              <button type="submit" class="btn btn-warning">Filtrar</button>
+            </div>
+          </form>
+        </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4" id="salones-cards-container"></div>
       </div>
-
     </section>
 
     <section class="w-100 map my-5">
@@ -179,6 +192,7 @@
           <div class="mb-3 text-end">
             <label class="form-label fs-5">Total: $<span id="totalReserva" class="text-success fw-bold">0</span></label>
           </div>
+          <div id="mensajeErrorReserva" class="alert alert-danger d-none" role="alert"></div>
         </div>
         <div class="modal-footer border-0">
           <button type="submit" class="btn btn-warning w-100 fw-bold shadow-sm">
