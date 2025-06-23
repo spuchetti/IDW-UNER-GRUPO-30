@@ -57,25 +57,27 @@
         <form class="bg-light p-4 rounded shadow">
           <h2 class="text-center mb-4">Iniciar Sesión</h2>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Usuario</label>
             <input
-              type="email"
+              type="text"
               class="form-control"
-              id="email"
+              id="username"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Ingresa tu usuario"
+              required
+              value="michaelw"
             />
-            <small id="emailHelp" class="form-text text-muted"
-              >Nunca compartiremos tu email con alguien más.</small
-            >
           </div>
+          <br>
           <div class="form-group">
             <label for="password">Password</label>
             <input
               type="password"
               class="form-control"
               id="password"
-              placeholder="Password"
+              placeholder="Ingresa una contraseña"
+              required
+              value="michaelwpass"
             />
           </div>
           <div class="form-check">
@@ -85,7 +87,7 @@
               id="checkbox_recordar"
             />
             <label class="form-check-label" for="checkbox_recordar"
-              >Check me out</label
+              >Recordar</label
             >
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>

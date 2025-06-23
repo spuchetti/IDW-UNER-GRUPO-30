@@ -1,3 +1,7 @@
+import { inicializar_salones } from './ini_salones.js';
+
+inicializar_salones();
+
 function obtenerSalones() {
   return JSON.parse(localStorage.getItem('salones')) || [];
 }
@@ -20,18 +24,58 @@ function crearCardSalon(salon) {
           <p class="fw-semibold">
             <span class="text-warning">Precio: </span>$${salon.precio} por día
           </p>
-          <a href="#" class="btn btn-warning text-dark fw-bold w-100">Reservar ahora</a>
+          <a href="#" class="btn btn-warning btn-reservar-salon" data-id="${salon.id}">Reservar ahora</a>
         </div>
       </div>
     </div>
   `;
 }
-export function renderizarSalones() {
+export function renderizarSalones(salones, fechaSeleccionada = '') {
   const container = document.getElementById('salones-cards-container');
-  if (!container) return;
-  const salones = obtenerSalones();
-  container.innerHTML = salones.map(crearCardSalon).join('');
+  container.innerHTML = salones.map(salon => {
+    let estado = "Disponible";
+    if (fechaSeleccionada && salonEstaReservado(salon.id, fechaSeleccionada)) {
+      estado = "Reservado";
+    }
+    return `
+      <div class="col">
+        <div class="card h-100 shadow rounded-4">
+          <img src="${salon.imagen}" class="card-img-top rounded-top-4" alt="Salón ${salon.nombre}" />
+          <div class="card-body text-center d-flex flex-column justify-content-between">
+            <h5 class="card-title fw-bold">${salon.nombre}</h5>
+            <p class="card-text">${salon.descripcion}</p>
+            <p class="card-text">Capacidad: ${salon.capacidad} personas.</p>
+            <p class="fw-semibold">
+              <span class="text-warning">Precio: </span>$${salon.precio} por día
+            </p>
+            <span class="badge ${estado === 'Disponible' ? 'bg-success' : 'bg-danger'} mb-2">${estado}</span>
+            <a href="#" class="btn btn-warning btn-reservar-salon ${estado === 'Reservado' ? 'disabled' : ''}" data-id="${salon.id}">Reservar ahora</a>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
-// Renderiza al cargar el archivo
-renderizarSalones();
+function obtenerPresupuestos() {
+  return JSON.parse(localStorage.getItem('presupuestos')) || [];
+}
+
+function salonEstaReservado(salonId, fecha) {
+  const presupuestos = obtenerPresupuestos();
+  return presupuestos.some(p => p.salonId == salonId && p.fecha === fecha);
+}
+
+document.getElementById('formFiltros').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const fecha = document.getElementById('filtroFecha').value;
+  renderizarSalones(obtenerSalones(), fecha);
+});
+
+document.getElementById('filtroFecha').addEventListener('change', function() {
+  const fecha = this.value;
+  renderizarSalones(obtenerSalones(), fecha);
+});
+
+
+renderizarSalones(obtenerSalones());
