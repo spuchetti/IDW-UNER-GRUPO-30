@@ -1,21 +1,4 @@
-<<<<<<< HEAD:js/login.js
-import { login } from './auth.js';
-
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const recordarCheckbox = document.getElementById('checkbox_recordar');
-
-
-window.addEventListener('DOMContentLoaded', () => {
-  emailInput.value = "admin@idwsa.com";
-  passwordInput.value = "admin123";
-  recordarCheckbox.checked = true;
-});
-
-document.querySelector('form').addEventListener('submit', function(e) {
-=======
 document.querySelector('form').addEventListener('submit', async function(e) {
->>>>>>> Seba:src/js/login.js
   e.preventDefault();
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value.trim();

@@ -7,7 +7,7 @@ function obtenerSalones() {
 }
 
 function crearCardSalon(salon) {
-  const imgSrc = salon.imagen ? salon.imagen : `img/salon${salon.id}.webp`;
+  const imgSrc = salon.imagen ? salon.imagen : `src/img/salon${salon.id}.webp`;
   return `
     <div class="col">
       <div class="card h-100 shadow rounded-4">
@@ -15,7 +15,7 @@ function crearCardSalon(salon) {
           src="${imgSrc}"
           class="card-img-top rounded-top-4"
           alt="Salón ${salon.nombre}"
-          onerror="this.onerror=null;this.src='img/salon1.webp';"
+          onerror="this.onerror=null;this.src='src/img/salon1.webp';"
         />
         <div class="card-body text-center d-flex flex-column justify-content-between">
           <h5 class="card-title fw-bold">${salon.nombre}</h5>
