@@ -46,7 +46,7 @@ function generarComprobantePDF(presupuesto) {
     
     if (logoBase64 && logoBase64.startsWith('data:image/png;base64,')) {
         console.log('Logo base64:', logoBase64);
-        doc.addImage(logoBase64, 'PNG', 5, 5, 50, 35);
+        doc.addImage(logoBase64, 'PNG', 5, 5, 50, 10);
     }
 
     doc.setFontSize(20);
