@@ -77,5 +77,5 @@ document.getElementById('filtroFecha').addEventListener('change', function() {
   renderizarSalones(obtenerSalones(), fecha);
 });
 
-// Render inicial (sin filtro de fecha)
+
 renderizarSalones(obtenerSalones());

@@ -43,12 +43,12 @@ function generarComprobantePDF(presupuesto) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
+    
     if (logoBase64 && logoBase64.startsWith('data:image/png;base64,')) {
-        doc.addImage(logoBase64, 'PNG', 15, 8, 30, 20);
+        console.log('Logo base64:', logoBase64);
+        doc.addImage(logoBase64, 'PNG', 5, 5, 50, 35);
     }
 
-    doc.setFillColor(255, 193, 7);
-    doc.rect(0, 0, 210, 30, 'F');
     doc.setFontSize(20);
     doc.setTextColor(40, 40, 40);
     doc.setFont('helvetica', 'bold');
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 total: totalServicios
             };
 
-            // Validación de fecha (no permitir fechas pasadas)
+            
             const hoy = new Date();
             hoy.setHours(0,0,0,0);
             const partes = fecha.split('-');
@@ -212,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (mensajeError) mensajeError.classList.add('d-none');
             }
 
-            // Validación de reserva duplicada
             const presupuestos = obtenerPresupuestos();
             const yaReservado = presupuestos.some(p => 
                 p.salonId == presupuesto.salonId && p.fecha === presupuesto.fecha
@@ -246,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Setear el mínimo de fecha en el input del modal
+    
     const hoy = new Date();
     const yyyy = hoy.getFullYear();
     const mm = String(hoy.getMonth() + 1).padStart(2, '0');

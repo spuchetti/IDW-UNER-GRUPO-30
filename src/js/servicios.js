@@ -26,6 +26,12 @@ document.getElementById('formServicio').addEventListener('submit', function(e) {
   const id = document.getElementById('servicioId').value;
   const descripcion = document.getElementById('descripcionServicio').value.trim();
   const valor = Number(document.getElementById('valorServicio').value);
+
+  if (!descripcion || isNaN(valor) || valor <= 0) {
+    alert('Complete la descripción y un valor válido.');
+    return;
+  }
+
   let servicios = obtenerServicios();
   if (id) {
     servicios = servicios.map(s => s.id == id ? { ...s, descripcion, valor } : s);

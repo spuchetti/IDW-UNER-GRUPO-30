@@ -1,5 +1,5 @@
 export const inicializar_salones = () => {
-  if (!localStorage.getItem('salones')) { // Verifica si ya existen salones en localStorage
+  if (!localStorage.getItem('salones')) {
     const salones_iniciales = [
       {
         id: 1,

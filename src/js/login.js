@@ -11,7 +11,7 @@ document.querySelector('form').addEventListener('submit', async function(e) {
   if (res.ok) {
     const data = await res.json();
     sessionStorage.setItem('accessToken', data.token);
-    // Solo michaelw es admin
+    
     if (username === "michaelw") {
       sessionStorage.setItem('rol', 'admin');
       window.location.href = "cpanel.html";
