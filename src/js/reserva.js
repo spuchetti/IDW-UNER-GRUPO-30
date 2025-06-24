@@ -5,10 +5,9 @@ inicializar_servicios();
 let logoBase64 = null;
 let logoListo = false;
 
-// Carga el logo al iniciar la página
 function cargarLogo() {
     const img = new Image();
-    img.src = 'src/img/logo.png'; // Cambia la ruta si es necesario
+    img.src = 'src/img/logo.png'; 
     img.crossOrigin = 'Anonymous';
     img.onload = function () {
         const canvas = document.createElement('canvas');
@@ -18,7 +17,11 @@ function cargarLogo() {
         ctx.drawImage(img, 0, 0);
         logoBase64 = canvas.toDataURL('image/png');
         logoListo = true;
+
+        document.querySelectorAll('.btn-reservar-salon').forEach(btn => btn.disabled = false);
     };
+ 
+    document.querySelectorAll('.btn-reservar-salon').forEach(btn => btn.disabled = true);
 }
 cargarLogo();
 
@@ -32,7 +35,6 @@ function guardarPresupuestos(presupuestos) {
     localStorage.setItem('presupuestos', JSON.stringify(presupuestos));
 }
 
-
 function generarComprobantePDF(presupuesto) {
     if (!logoListo) {
         alert('El logo aún se está cargando. Por favor, intentá de nuevo en un momento.');
@@ -41,13 +43,12 @@ function generarComprobantePDF(presupuesto) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    // Agrega el logo en la esquina superior izquierda (ajusta tamaño y posición a gusto)
+    
     if (logoBase64 && logoBase64.startsWith('data:image/png;base64,')) {
-        doc.addImage(logoBase64, 'PNG', 15, 8, 30, 20);
+        console.log('Logo base64:', logoBase64);
+        doc.addImage(logoBase64, 'PNG', 5, 5, 50, 10);
     }
 
-    doc.setFillColor(255, 193, 7);
-    doc.rect(0, 0, 210, 30, 'F');
     doc.setFontSize(20);
     doc.setTextColor(40, 40, 40);
     doc.setFont('helvetica', 'bold');
@@ -120,8 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const modal = new bootstrap.Modal(document.getElementById('modalReserva'));
             modal.show();
+            actualizarTotal();
         }
     });
+
     const servicios = obtenerServicios();
     const serviciosDiv = document.getElementById('serviciosReserva');
     if (serviciosDiv) {
@@ -132,10 +135,15 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>`
         ).join('');
     }
+
     function actualizarTotal() {
         const servicios = obtenerServicios();
         const seleccionados = Array.from(document.querySelectorAll('.servicio-check:checked'));
-        const total = seleccionados.reduce((sum, input) => {
+        const salonId = document.getElementById('reservaSalonId').value;
+        const salones = JSON.parse(localStorage.getItem('salones')) || [];
+        const salonSeleccionado = salones.find(s => s.id == salonId);
+        let total = salonSeleccionado ? Number(salonSeleccionado.precio) : 0;
+        total += seleccionados.reduce((sum, input) => {
             const id = Number(input.dataset.id);
             const servicio = servicios.find(s => s.id === id);
             return sum + (servicio ? Number(servicio.valor) : 0);
@@ -144,8 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.getElementById('serviciosReserva').addEventListener('change', actualizarTotal);
-
-    actualizarTotal();
 
     const form = document.getElementById('formReserva');
     let ultimoPresupuesto = null;
@@ -170,10 +176,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     return servicio;
                 });
 
-            const totalServicios = serviciosSeleccionados.reduce((sum, s) => sum + Number(s.valor), 0);
+            const salonId = document.getElementById('reservaSalonId').value;
+            const salones = JSON.parse(localStorage.getItem('salones')) || [];
+            const salonSeleccionado = salones.find(s => s.id == salonId);
+
+            let totalServicios = salonSeleccionado ? Number(salonSeleccionado.precio) : 0;
+            totalServicios += serviciosSeleccionados.reduce((sum, s) => sum + Number(s.valor), 0);
 
             const presupuesto = {
                 id: Date.now(),
+                salonId,
                 nombre,
                 fecha,
                 tematica,
@@ -181,7 +193,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 total: totalServicios
             };
 
+            
+            const hoy = new Date();
+            hoy.setHours(0,0,0,0);
+            const partes = fecha.split('-');
+            const fechaReserva = new Date(Number(partes[0]), Number(partes[1]) - 1, Number(partes[2]));
+            fechaReserva.setHours(0,0,0,0);
+
+            const mensajeError = document.getElementById('mensajeErrorReserva');
+            if (fechaReserva < hoy) {
+                if (mensajeError) {
+                    mensajeError.textContent = 'No se puede reservar para una fecha pasada.';
+                    mensajeError.classList.remove('d-none');
+                }
+                event.preventDefault();
+                return;
+            } else {
+                if (mensajeError) mensajeError.classList.add('d-none');
+            }
+
             const presupuestos = obtenerPresupuestos();
+            const yaReservado = presupuestos.some(p => 
+                p.salonId == presupuesto.salonId && p.fecha === presupuesto.fecha
+            );
+
+            if (yaReservado) {
+                if (mensajeError) {
+                    mensajeError.textContent = 'Este salón ya está reservado para esa fecha.';
+                    mensajeError.classList.remove('d-none');
+                }
+                event.preventDefault();
+                return;
+            } else {
+                if (mensajeError) mensajeError.classList.add('d-none');
+            }
+
             presupuestos.push(presupuesto);
             guardarPresupuestos(presupuestos);
 
@@ -198,4 +244,18 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('¡Reserva realizada correctamente! El comprobante se descargó automáticamente.');
         });
     }
+
+    
+    const hoy = new Date();
+    const yyyy = hoy.getFullYear();
+    const mm = String(hoy.getMonth() + 1).padStart(2, '0');
+    const dd = String(hoy.getDate()).padStart(2, '0');
+    const minFecha = `${yyyy}-${mm}-${dd}`;
+    const inputFechaEvento = document.getElementById('fechaEvento');
+    if (inputFechaEvento) inputFechaEvento.setAttribute('min', minFecha);
+
+    document.getElementById('fechaEvento').addEventListener('input', function() {
+        const mensajeError = document.getElementById('mensajeErrorReserva');
+        if (mensajeError) mensajeError.classList.add('d-none');
+    });
 });

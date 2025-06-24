@@ -11,8 +11,12 @@ document.querySelector('form').addEventListener('submit', async function(e) {
   if (res.ok) {
     const data = await res.json();
     sessionStorage.setItem('accessToken', data.token);
-    // Solo michaelw es admin
-    if (username === "michaelw") {
+
+    // Obtener datos completos del usuario para saber el rol
+    const userRes = await fetch(`https://dummyjson.com/users/${data.id}`);
+    const userData = await userRes.json();
+
+    if (userData.role === "admin") {
       sessionStorage.setItem('rol', 'admin');
       window.location.href = "cpanel.html";
     } else {
