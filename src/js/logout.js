@@ -1,4 +1,7 @@
-import { logout } from './auth.js';
+function logout() {
+  sessionStorage.clear();
+  window.location.href = "login.html";
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('btnLogout');

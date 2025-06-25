@@ -1,0 +1,67 @@
+Explicación sencilla del proceso de autenticación para resumir
+
+1. Formulario de Login
+El usuario ingresa su nombre de usuario y contraseña en la página de login.
+
+2. Archivo principal: login.js
+Cuando el usuario envía el formulario, este archivo:
+Captura el evento y evita que la página se recargue.
+Toma los valores del usuario y contraseña.
+
+3. Validación con la API
+Se hace una solicitud POST a https://dummyjson.com/auth/login usando fetch, enviando los datos del usuario.
+Si la respuesta es correcta:
+Se guarda el token recibido en sessionStorage como accessToken.
+Se hace otra consulta a la API para obtener los datos completos del usuario y saber su rol (admin o común).
+
+4. Control de acceso según el rol
+Si el usuario es admin:
+Se guarda el rol en sessionStorage y se redirige al panel de administración (cpanel.html).
+Si el usuario es común:
+Se guarda el rol, se muestra un mensaje de advertencia y se redirige a la página principal (index.html).
+
+5. Protección de páginas restringidas: proteger_ruta.js
+Este archivo verifica en cada página protegida si existe un accessToken y si el rol es el correcto.
+Si no hay token o el rol no es suficiente, redirige al usuario fuera del panel de administración.
+
+6. Cerrar sesión: logout.js
+Cuando el usuario hace clic en "Cerrar sesión", se borra el token y el rol del sessionStorage y se redirige al login.
+
+7. Funciones auxiliares: auth.js
+Proporciona funciones para saber si el usuario está logueado, obtener el rol y cerrar sesión.
+Resumen del flujo
+El usuario inicia sesión → se valida con la API → se guarda el token y el rol.
+El acceso a páginas protegidas se controla revisando el token y el rol.
+Solo los administradores pueden acceder al panel de administración.
+El usuario puede cerrar sesión, lo que elimina el acceso.
+
+
+Contact Formulario
+¿Cómo se procesa el formulario de contacto?
+El usuario completa el formulario
+
+En la página contacto.html, el usuario ingresa su nombre, correo electrónico, asunto y mensaje.
+Envío del formulario
+
+Cuando el usuario hace clic en "Enviar", el formulario dispara un evento de envío (submit).
+Captura del evento con JavaScript
+
+Un archivo JS (por ejemplo, contacto.js) escucha el evento submit del formulario.
+Se previene el comportamiento por defecto (que recargaría la página).
+Validación de los datos
+
+El script valida que todos los campos requeridos estén completos y que el correo tenga formato válido.
+Si hay errores, se muestran mensajes de advertencia y no se envía el formulario.
+Procesamiento del mensaje
+
+Si la validación es exitosa, el mensaje puede:
+Enviarse a un servidor o API (si está configurado).
+O simplemente mostrar un mensaje de éxito en pantalla (si es solo demostrativo).
+Feedback al usuario
+
+Se muestra un mensaje de confirmación indicando que el mensaje fue enviado correctamente.
+El formulario puede resetearse para permitir nuevos envíos.
+Resumen del flujo
+El usuario completa y envía el formulario.
+El JS valida los datos.
+Si todo está bien, se procesa el mensaje y se muestra una confirmación.
